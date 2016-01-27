@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/Entity/advert.ts"],"names":["Advert","Advert.constructor"],"mappings":";;;;;YAAA;gBAAAA;gBAEAC,CAACA;gBAADD,aAACA;YAADA,CAFA,AAECA,IAAA;YAFD,2BAEC,CAAA","file":"components/Entity/advert.js","sourcesContent":["export class Advert {\r\n\r\n}"],"sourceRoot":"/source/"}

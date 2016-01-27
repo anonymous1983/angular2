@@ -1,0 +1,14 @@
+<div *ngFor="#advert of adverts; #i=index">
+    <div class="clearfix">
+        <i>{{i+1}} :: </i>
+        <input id="{{i}}" type="checkbox" [(checked)]="advert.status">
+        <label [attr.for]="i">{{advert.titre}}</label>
+        <a class="glyphicon glyphicon-check" (click)="updateStatus(advert)"></a>
+    </div>
+    <div>
+        <img src="{{advert.url}}" alt="{{advert.titre}}" class="img-thumbnail" width="100">
+        <p>
+            {{advert.description}}
+        </p>
+    </div>
+</div>

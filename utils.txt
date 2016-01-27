@@ -1,0 +1,16 @@
+https://medium.com/google-developer-experts/angular-2-introduction-to-new-http-module-1278499db2a0#.7lfncc38k
+
+http://blog.thoughtram.io/angular/2016/01/06/taking-advantage-of-observables-in-angular2.html
+
+https://auth0.com/blog/2015/10/15/angular-2-series-part-3-using-http/
+
+http://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+
+
+
+http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
+
+http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-angular-2.html
+
+http://www.datchley.name/es6-promises/
+
