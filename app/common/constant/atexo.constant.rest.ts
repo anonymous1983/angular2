@@ -8,11 +8,17 @@ import {RequestMethod} from 'angular2/http';
 
 export const AtexoConstantRest = {
     baseUrl: 'http://localhost/symfony2.local/web/app_dev.php/api/v1/',
+    _format: 'json',
     request: {
         adverts: {
             all: {
                 method: RequestMethod.Get,
-                url: 'adverts'
+                url: 'adverts',
+                _format: 'json',
+                parameter: {
+                    limit: 5,
+                    offset: 0
+                }
             },
             add: {
                 method: RequestMethod.Post,

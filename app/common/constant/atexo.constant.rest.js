@@ -9,11 +9,17 @@ System.register(['angular2/http'], function(exports_1) {
         execute: function() {
             exports_1("AtexoConstantRest", AtexoConstantRest = {
                 baseUrl: 'http://localhost/symfony2.local/web/app_dev.php/api/v1/',
+                _format: 'json',
                 request: {
                     adverts: {
                         all: {
                             method: http_1.RequestMethod.Get,
-                            url: 'adverts'
+                            url: 'adverts',
+                            _format: 'json',
+                            parameter: {
+                                limit: 5,
+                                offset: 0
+                            }
                         },
                         add: {
                             method: http_1.RequestMethod.Post,

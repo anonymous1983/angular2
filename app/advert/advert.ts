@@ -7,6 +7,7 @@ import {Util} from '../common/util/util';
 import {AdvertItem} from './advertEntity';
 import {AdvertService} from './advertService';
 import {HTTP_PROVIDERS, Http, RequestOptions, Request, RequestMethod} from 'angular2/http';
+import {Response} from 'angular2/http';
 
 
 @Component({
@@ -20,37 +21,23 @@ import {HTTP_PROVIDERS, Http, RequestOptions, Request, RequestMethod} from 'angu
 export class Advert {
     //adverts: Array<AdvertItem>;
     adverts:Object[];
-    advert2:Array<Object>;
-
+    currentPage:number = 0;
 
     constructor(advertService:AdvertService) {
-
-        this.adverts = advertService.get();
-
-        advertService.getWithHttp().subscribe(res => console.log(res));
-
-
-        var options = new RequestOptions({
-            method: RequestMethod.Post,
-            url: 'https://google.com'
+        var param = {
+            limit: 2,
+            offset: 2
+        };
+        advertService.getAdverts(param).subscribe((res:Response) => {
+            this.adverts = res.json();
         });
-        var req = new Request(options);
-        console.log('req.method:', RequestMethod[req.method]); // Post
-        console.log('options.url:', options.url); // https://google.com
-        console.log(options);
-        console.log(req);
-        console.log(RequestMethod.Post);
-
-        console.log(AtexoConstant);
-        var utilsPath = new Util.Path();
-        var utilsUrl = new Util.Rest();
-        console.log(utilsPath.setPath('sss').build());
-        console.log(new Util.Rest().setPath('Adver').build());
-
     }
 
     updateStatus(item:AdvertItem) {
-        console.log(item);
+        return true;
+    }
+
+    nextPage() {
         return true;
     }
 

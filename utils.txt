@@ -14,3 +14,10 @@ http://blog.thoughtram.io/angular/2015/09/17/resolve-service-dependencies-in-ang
 
 http://www.datchley.name/es6-promises/
 
+
+https://github.com/angular/angular/blob/2.0.0-beta.0/modules/angular2/src/facade/lang.ts
+
+https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#3.11.1
+
+
+http://www.alsacreations.com/tuto/lire/1686-introduction-a-gulp.html
