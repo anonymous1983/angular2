@@ -1,13 +1,12 @@
 import {Component, View, Inject} from 'angular2/core';
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Control, AbstractControl, Validators} from 'angular2/common';
-import {AtexoConstant} from '../common/constant/atexo.constant';
-import {Util} from '../common/util/util';
+import {HTTP_PROVIDERS, Http, RequestOptions, Request, Response, RequestMethod} from 'angular2/http';
+
 
 
 import {AdvertItem} from './advertEntity';
 import {AdvertService} from './advertService';
-import {HTTP_PROVIDERS, Http, RequestOptions, Request, RequestMethod} from 'angular2/http';
-import {Response} from 'angular2/http';
+import {Progress} from '../progress';
+
 
 
 @Component({
@@ -19,25 +18,47 @@ import {Response} from 'angular2/http';
 })
 
 export class Advert {
-    //adverts: Array<AdvertItem>;
-    adverts:Object[];
+    adverts:Object[] = [];
     currentPage:number = 0;
+    offset:number = 0;
+    limit:number = 5;
+    advertService:AdvertService;
+    endContent:boolean = false;
 
     constructor(advertService:AdvertService) {
+        this.advertService = advertService;
+        this.getAdverts();
+    }
+
+    getAdverts() {
         var param = {
-            limit: 2,
-            offset: 2
+            limit: this.limit,
+            offset: this.offset
         };
-        advertService.getAdverts(param).subscribe((res:Response) => {
-            this.adverts = res.json();
+        Progress.getInstance().incrementNbrProgress();
+        this.advertService.getAdverts(param).subscribe((res:Response) => {
+
+            if (res.status === 200) {
+                this.endContent = false;
+                res.json().forEach((obj) => {
+                    this.adverts.push(obj);
+                });
+                Progress.getInstance().decrementNbrProgress();
+            } else {
+                this.endContent = true;
+            }
+
         });
     }
+
 
     updateStatus(item:AdvertItem) {
         return true;
     }
 
     nextPage() {
+        this.offset += this.limit;
+        this.getAdverts();
         return true;
     }
 

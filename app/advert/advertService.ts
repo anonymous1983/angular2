@@ -19,8 +19,8 @@ export class AdvertService {
 
         var options = new RequestOptions({
             method: AtexoConstant.rest.request.adverts.all.method,
-            url: new Util.Rest().setPath(AtexoConstant.rest.request.adverts.all.url).build(),
-            search: new Util.RequestOptions().setSearchParams(_parameter)
+            url: Util.getInstance().Rest().setPath(AtexoConstant.rest.request.adverts.all.url).build(),
+            search: Util.getInstance().RequestOptions().setSearchParams(_parameter)
         });
         var req = new Request(options);
         return this.http.request(req);
