@@ -21,3 +21,5 @@ https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md#3.11.1
 
 
 http://www.alsacreations.com/tuto/lire/1686-introduction-a-gulp.html
+
+https://github.com/gdi2290/angular2do/blob/gh-pages/app/components/todo-item/todo-item.js

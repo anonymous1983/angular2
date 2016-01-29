@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './Routing'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(['angular2/core', 'angular2/router', './Routing'], function(expo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, Routing_1;
-    var AppComponent;
+    var core_1, router_1;
+    var About;
     return {
         setters:[
             function (core_1_1) {
@@ -17,35 +17,26 @@ System.register(['angular2/core', 'angular2/router', './Routing'], function(expo
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (Routing_1_1) {
-                Routing_1 = Routing_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                //progress = Progress.getInstance();
-                function AppComponent(location) {
-                    this.location = location;
+            About = (function () {
+                function About(params) {
+                    this.id = params.get('id');
                 }
-                AppComponent.prototype.isActive = function (path) {
-                    return this.location.path() === path;
-                };
-                AppComponent = __decorate([
+                About = __decorate([
                     core_1.Component({
-                        selector: 'my-app'
+                        selector: 'about'
                     }),
                     core_1.View({
-                        templateUrl: './app/app.html',
-                        directives: [router_1.RouterOutlet, router_1.RouterLink]
-                    }),
-                    router_1.RouteConfig(Routing_1.Routing), 
-                    __metadata('design:paramtypes', [router_1.Location])
-                ], AppComponent);
-                return AppComponent;
+                        template: "\n\t\tWelcome to the about page! This is the ID: {{id}}\n\t"
+                    }), 
+                    __metadata('design:paramtypes', [router_1.RouteParams])
+                ], About);
+                return About;
             })();
-            exports_1("AppComponent", AppComponent);
+            exports_1("About", About);
         }
     }
 });
 
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=about.js.map
